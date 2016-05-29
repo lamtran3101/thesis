@@ -1,0 +1,22 @@
+#software
+1. xampp
+2. laravel
+3. mysql
+
+#server
+http://tranlam.com.es/
+46.101.185.5
+
+Account: root/sumeriscoming
+Mysql: root/Tiu1RMmYLI
+
+#phpmyadmin
+tranlam.com.es/phpmyadmin
+
+//setup localhost
+1. install xampp 
+2. donwload source code form git
+3. set htdoc folder to /var/www/thesis/public
+
+
+
