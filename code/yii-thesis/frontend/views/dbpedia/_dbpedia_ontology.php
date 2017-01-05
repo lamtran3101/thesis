@@ -13,7 +13,6 @@ if(isset($response['comment'])) {
 	}
 	echo HTML::tag('p', $about, array('class' => 'page-description'));
 }
-
 ?>
 
 <div class="page-content"> 

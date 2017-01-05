@@ -10,6 +10,9 @@ use yii\base\view;
 		case 'resource':
 			echo $this->render('_dbpedia_resource', array('response'=>$response));
 			break;
+		case 'ontology':
+			echo $this->render('_dbpedia_ontology', array('response'=>$response));
+			break;
 		default:
 			break;
 	}

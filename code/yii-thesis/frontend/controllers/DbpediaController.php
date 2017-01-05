@@ -4,7 +4,7 @@
 namespace frontend\controllers;
 use Yii;
 
-define('DBPEDIA_URL', 'http://ja.dbpedia.org/');
+define('DBPEDIA_URL', 'http://dbpedia.org/');
 
 class DbpediaController extends \yii\web\Controller
 {
@@ -31,6 +31,9 @@ class DbpediaController extends \yii\web\Controller
                 case 'resource':
                     $key .= 'resource/';
                     break;
+                case 'ontology':
+                    $key .= 'ontology/';
+                    break;
                 default:
                     $key .= 'resource/';
                     break;
@@ -42,7 +45,7 @@ class DbpediaController extends \yii\web\Controller
                 } else {
                     foreach ($refs as $k => $ref) {
                         if(!isset( $data[$k]))  $data[$k] = array();
-                        foreach ($ref as $k => $r) {
+                        foreach ($ref as $r) {
                            $data[$k][] = array(
                                 'type' => $r['type'],
                                 'value' => $uri
@@ -51,18 +54,18 @@ class DbpediaController extends \yii\web\Controller
                     }
                 }
             }
-            if(isset($response[$key])) {
-                $data = $response[$key];
-            }
         }
         return $this->_adjust_data($data, $class, $name);
     }
 
     private function _adjust_data($response, $tipo, $title) {
+
         $data = null;
         if($response) {
             $data['class'] = $tipo;
             $data['title'] = $title;
+
+
             foreach ($response as $key => $value) {
                 $data[$key] = $value;
                 // if(preg_match('/#type$/', $key)) {
@@ -85,6 +88,7 @@ class DbpediaController extends \yii\web\Controller
                 // }
             }
         }
+
         return $data;
     }
 
