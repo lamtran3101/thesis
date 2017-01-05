@@ -1,9 +1,21 @@
 <?php
 /* @var $this yii\web\View */
+use yii\helpers\Html;
+use yii\base\view;
 ?>
-<h1>dbpedia/index</h1>
-
-<p>
-    You may change the content of this page by modifying
-    the file <code><?= __FILE__; ?></code>.
-</p>
+<?php if($response) : ?>
+<?php
+	$class = $response['class'];
+	switch ($class) {
+		case 'resource':
+			echo $this->render('_dbpedia_resource', array('response'=>$response));
+			break;
+		default:
+			break;
+	}
+?>
+<?php else: ?>
+	<?php 
+		echo HTML::tag('div', 'invalid url', array('class' => 'error'));
+	?>
+<?php endif; ?>

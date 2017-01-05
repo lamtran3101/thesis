@@ -11,5 +11,8 @@ return [
         'helpers' => [
             'class' => 'common\components\Helpers',
         ],
+        'dbpedia' => [
+            'class' => 'common\components\DBPedia',
+        ],
     ],
 ];
